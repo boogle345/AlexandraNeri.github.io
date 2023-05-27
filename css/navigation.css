@@ -1,0 +1,129 @@
+/*
+=Checkbox + Hamburger
+============================================= */
+/*
+=style the checkbox + hamburger */
+.checkbox,
+.hamburger {
+  height: 4.5rem; /* assign a height to the checkbox + hamburger */
+  width: 4.5rem; /* assign a width to the checkbox + hamburger */
+  position: fixed; /* position the checkbox + hamburger relative to the viewport */
+  top: 2rem; left: 3rem; /* offset the checkbox + hamburger from the top + left sides of the viewpoint */
+}
+/*
+=style the checkbox */
+.checkbox {
+  z-index: 20; /* position the checkbox in front of the hamburger */
+  opacity: 0; /* make the checkbox invisible */
+  cursor: pointer; /* change the cursor to a pointer when positioned over the checkbox */
+}
+/*
+=style the hamburger */
+.hamburger {
+  padding: 1rem; /* add padding to all sides of the hamburger */
+  z-index: 10; /* position the hamburger in front of the menu bar */
+}
+
+/*
+=Hamburger Wrapper
+============================================= */
+/*
+=style the wrapper */
+.hamburger .wrapper {
+  height: 100%; /* ensure the wrapper absorbs all of the available vertical space */
+  display: flex; /* make the wrapper a flex container */
+  align-items: center; /* center the center line along the cross (y) axis */
+  transition: 0.5s ease; /* ensure a smooth rotation of the wrapper through 135° */
+}
+
+/*
+=Hamburger Lines
+============================================= */
+/*
+=style the center + pseudo lines */
+.wrapper .line,
+.wrapper .line::before,
+.wrapper .line::after {
+  background-color: black; /* color the center + pseudo lines black */
+  height: 0.15rem; /* give each line a height equivalent to 1.5 pixels */
+  width: 100%; /* ensure the centerline expands to the full width of the available space */
+}
+/*
+=create a new positioning context for the top + bottom pseudo lines */
+.wrapper .line {
+  position: relative;
+}
+/*
+=position + transition the pseudo lines */
+.wrapper .line::before,
+.wrapper .line::after {
+  content: ""; /* the pseudo lines will not appear without the content declaration! */
+  position: absolute; /* absolutely position the pseudo lines */
+  transition: 0.5s ease; /* ensure a smooth rotation of the pseudo lines through the extra 90° */
+}
+/*
+=offset the pseudo lines above + below the centerline */
+.wrapper .line::before { top: -0.7rem; } /* offset the before pseudo line 7 pixels above the centerline */
+.wrapper .line::after  { top: 0.7rem; } /* offset the after pseudo line 7 pixels below the centerline */
+
+/*
+=rotate the wrapper 135° clockwise */
+.checkbox:checked + .hamburger .wrapper {
+  transform: rotate(135deg);
+}
+/*
+=rotate + reposition the pseudo lines */
+.checkbox:checked + .hamburger .line::before,
+.checkbox:checked + .hamburger .line::after {
+  transform: rotate(90deg); /* rotate the pseudo lines a further 90° clockwise to complete the X */
+  top: 0; /* reposition the pseudo lines to align flush with the centerline */
+}
+/*
+=transition the bottom line from view by the completion of the X */
+.checkbox:checked + .hamburger .line:after {
+  opacity: 0;
+}
+/*
+=rotate the X on the hover event */
+.checkbox:checked:hover + .hamburger .wrapper {
+  transform: rotate(225deg);
+}
+
+/*
+=Navbar Container + Links
+============================================= */
+/*
+=style the navbar */
+.navbar {
+  position: fixed; /* remove the navbar from the page's normal flow */
+  top: 0; left: -25rem; bottom: 0; /* position the navbar relative to the top, bottom, and left of the viewport */
+  width: 25rem; /* assign a width to the navbar */
+  display: flex; /* make the navbar a flex container */
+  flex-direction: column; /* display the navbar links (flex items) in column formation */
+  align-items: flex-end; /* align the links to the navbar's right side */
+  transition: 0.85s ease; /* ensure the navbar transitions smoothly into view */
+}
+/*
+=transition the navbar into view */
+.checkbox:checked ~ .navbar {
+  background-color: rgba(245, 245, 245, 0.65); /* add a translucent white background to the navbar */
+  left: 0; /* display the navbar by aligning it with the viewport's left edge */
+}
+/*
+=style the navbar links */
+.navbar a {
+  width: 20.8rem; /* assign a width to the navbar links */
+  color: transparent; /* start the navbar links' transition into view without color */
+  padding: 1rem 0; /* add space above + below each link */
+  transition: 0.85s ease; /* ensure the links transition smoothly into view */
+}
+/*
+=add space between the links + the viewport's top edge */
+.navbar a:first-child {
+  margin-top: 12rem; /* add space between the links + the viewport's top edge */
+}
+/*
+=transition the links' color to black */
+.checkbox:checked ~ .navbar a {
+  color: black;/* transition the links' color to black */
+}

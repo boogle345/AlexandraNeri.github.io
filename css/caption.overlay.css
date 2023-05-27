@@ -1,0 +1,91 @@
+/*
+=Caption Overlay
+============================================= */
+/*
+=style the gallery container (flex container) */
+.gallery {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/*
+=Gallery Columns
+============================================= */
+/*
+=style the gallery columns (flex items) */
+/*
+=2 Columns */
+.gallery .column_x2 {
+  flex: 0 1 50%;
+  padding: 0 4px;
+}
+/*
+=4 Columns */
+.gallery .column_x4 {
+  flex: 0 1 25%;
+  padding: 0 4px;
+}
+
+/*
+=Figure + Figcaption Elements
+============================================= */
+/*
+=style the figure elements (flex items) */
+.gallery figure {
+  position: relative;
+  margin: 2rem 1rem;
+}
+.gallery figcaption {
+  font-size: 85%; /* 16px x 0.85 = 13.6 */
+  /* padding: 10px 5px 10px; */
+}
+
+/*
+=Images
+============================================= */
+/*
+=style the images */
+.gallery img {
+  display: block;
+  width: 100%;
+}
+
+/*
+=Anchor Elements
+============================================= */
+/*
+=style the anchor elements */
+.gallery a {
+  color: transparent;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+
+  z-index: 99;
+}
+/*
+=style the hover event */
+.gallery a:hover {
+  background-color: rgba(0,0,0,0.75);
+  color: white;
+}
+
+/*
+=Large Screen
+============================================= */
+@media (min-width: 768px) {
+  .gallery {
+    flex-flow: row wrap;
+  }
+  .gallery .column {
+    flex: 0 0 50%;
+  }
+}
+
+/* ========================================== */

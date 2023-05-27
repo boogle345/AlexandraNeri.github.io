@@ -1,0 +1,77 @@
+/*
+=Accordion
+============================================= */
+.page-wrapper {
+  background-color: rgb(250, 250, 250); /* very light gray */
+  display: flow-root; /* single-value fallback */
+  display: block flow-root; /* outside display= block-level ~ inside display= create a new block formatting context */
+  max-width: 114rem; /* allow the page wrapper to expand to a maximum width of 1140 pixels */
+  min-height: 100vh; /* make the page wrapper no less than the height of the browser viewport */
+  margin: 0 auto; /* top-bottom left-right */
+  padding: 0 10rem 10rem; /* top left-right bottom */
+}
+/* ========================================== */
+h1 {
+  margin-bottom: 7.5rem;
+}
+
+.accordion {
+  position: relative;
+}
+.accordion > .toggle {
+  color: transparent;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+.accordion input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+}
+.accordion input:hover {
+  cursor: pointer;
+}
+.accordion input:checked ~ .toggle,
+.accordion input:checked ~ .toggle {
+  background-color: rgb(235, 235, 235);
+  color: inherit;
+  max-height: 50rem;
+}
+
+.accordion .wrapper {
+  position: absolute;
+  right: 0;
+  transform: translateY(-8px);
+  width: 52px;
+  height: 52px;
+  padding: 8px;
+}
+.accordion .rotate {
+  height: 100%;
+  transition: 0.35s;
+}
+.accordion input:checked + .wrapper .rotate {
+  transform: rotate(180deg);
+}
+
+.accordion .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.accordion .arrow::before,
+.accordion .arrow::after {
+  background-color: black;
+  content: "";
+  width: 50%;
+  height: 1px;
+}
+.accordion .arrow::before { transform: rotate(45deg) translate(2.115px, -2.115px); }
+.accordion .arrow::after  { transform: rotate(-45deg) translate(-2.115px, -2.115px); }
+
+/* ========================================== */

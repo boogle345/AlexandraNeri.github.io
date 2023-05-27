@@ -1,0 +1,30 @@
+/*
+=Global
+============================================= */
+:root {
+	font-size: 62.5%; /* make the default size= 10px */
+	-webkit-text-size-adjust: 100%; /* prevent font scaling in landscape while allowing the user zoom on mobile */
+}
+body {
+	background: url(../images/caravaggiolighttransparent.png) center center/ cover no-repeat;
+	font: 400 1.5rem/1.6 'Manrope', sans-serif;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-weight: 500;
+}
+li {
+	list-style: none;
+}
+/*
+=Link States
+============================================= */
+a {
+	text-decoration: none; /* remove the underline */
+	outline: none;
+}
+/* ========================================== */

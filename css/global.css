@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Saira+Extra+Condensed:wght@300&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background: url(../assets/images/caravaggiolighttransparent.png) center center/ cover no-repeat;
+  color: dimgray; /* dark gray */
+  font: 200 16px/1.5 'Manrope', sans-serif;
+ }
+.page-wrapper {
+  display: flow-root; /* single-value fallback */
+  display: block flow-root; /* outside display= block-level ~ inside display= create a new block formatting context */
+  max-width: 120rem; /* allow the page wrapper to expand to a maximum width of 1200px */
+  min-height: 100vh; /* make the page wrapper no less than the height of the browser viewport */
+  margin: 0 auto; /* top-bottom left-right */
+  padding: 0 3rem 10rem; /* top left-right bottom */
+}
+
+.depression {
+  width:50%;
+  height: 50%;
+  display: center;
+}
+/*
+=Headings
+============================================= */
+/*
+=style the h1 + h2 elements */
+h1, h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 28px;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 80px;
+}
+h2 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+/* ========================================== */
